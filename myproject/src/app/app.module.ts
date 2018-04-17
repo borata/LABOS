@@ -7,15 +7,24 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
-import {TabsModule} from "ngx-tabset";
+import { TabsModule } from "ngx-tabset";
 import { AlltabsComponent } from './alltabs/alltabs.component';
 import { UzytkownicyComponent } from './uzytkownicy/uzytkownicy.component';
 import { ProducenciComponent } from './producenci/producenci.component';
 import { OznaczeniaComponent } from './oznaczenia/oznaczenia.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
- 
+//dodałam poniżej application routes 
+
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'strefy', component: AlltabsComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full'}
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AlltabsComponent,
     UzytkownicyComponent,
     ProducenciComponent,
-    OznaczeniaComponent
+    OznaczeniaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,12 +42,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Ng2SmartTableModule,
     TabsModule.forRoot(),
     CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     ProductsService,
 
   ],
   bootstrap: [AppComponent]
+
+
 })
 export class AppModule { }

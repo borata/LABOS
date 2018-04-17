@@ -14,6 +14,8 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
   selector: 'app-alltabs',
   template: `
 
+  <a href="https://labostest.firebaseio.com/"> Baza </a>
+
   <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
 
 <ngx-tabset>
