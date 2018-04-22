@@ -16,12 +16,16 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { WprowadzIdComponent } from './wprowadz-id/wprowadz-id.component';
+import { SubstancjaComponent } from './substancja/substancja.component';
 
 //dodałam poniżej application routes 
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'strefy', component: AlltabsComponent },
+  { path: 'wprowadz_id', component: WprowadzIdComponent},
+  {path: 'substancja', component: SubstancjaComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full'}
 ]
 
@@ -33,7 +37,9 @@ const appRoutes: Routes = [
     UzytkownicyComponent,
     ProducenciComponent,
     OznaczeniaComponent,
-    LoginComponent
+    LoginComponent,
+    WprowadzIdComponent,
+    SubstancjaComponent
   ],
   imports: [
     BrowserModule,
