@@ -29,6 +29,9 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
   <ngx-tab title="OZNACZENIA" >
     <app-oznaczenia> </app-oznaczenia>
   </ngx-tab>
+  <ngx-tab title="WPROWADZ ILOSC" >
+    <app-wprowadz-ilosc> </app-wprowadz-ilosc>
+  </ngx-tab>
 </ngx-tabset>
   
   `,
@@ -40,6 +43,7 @@ export class AlltabsComponent implements OnInit {
   oznaczenia:any[];
   producenci:any[];
   uzytkownicy:any[];
+  wprowadz_ilosc:any[]
 data: LocalDataSource = new LocalDataSource();
 
   constructor() { }
