@@ -45,6 +45,8 @@ export class AlltabsComponent implements OnInit {
   oznaczenia:any[];
   producenci:any[];
   uzytkownicy:any[];
+  wprowadz_ilosc:any[]
+  
 data: LocalDataSource = new LocalDataSource();
 
   constructor() { }
