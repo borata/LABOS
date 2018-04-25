@@ -3,6 +3,9 @@ import { ProductsService } from './products.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { LocalDataSource } from 'ng2-smart-table';
 import {TabsModule} from "ngx-tabset";
+import {AngularFireAuth} from 'angularfire2/auth';
+
+
 
 //musi miec inny source - a potem rozdzielic na inne komponenty
 //nie jest tempalteURL wiec mi nie czyta products.component.html
@@ -77,7 +80,10 @@ producenci: any[];
       osobaOdpowiedzialna: {
         title: 'osobaOdpowiedzialna'
       }
-    } 
+    },
+    attr: {
+      class: 'table table-bordered'
+    },
   };
 
   
@@ -90,10 +96,7 @@ producenci: any[];
      this.products = products;
      this.data.load(products) // create the source
  
-   } )
-
- 
-   
+   } ) 
 }
   ngOnInit() {
   }

@@ -1,7 +1,7 @@
 import { OznaczeniaComponent } from './../oznaczenia/oznaczenia.component';
 import { ProductsComponent } from './../products/products.component';
 import { Component, OnInit } from '@angular/core';
-import {TabsModule} from "ngx-tabset";
+import { TabsModule} from "ngx-tabset";
 import { UzytkownicyComponent } from '../uzytkownicy/uzytkownicy.component';
 import { ProducenciComponent } from '../producenci/producenci.component';
 import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
@@ -13,13 +13,10 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
 @Component({
   selector: 'app-alltabs',
   template: `
-
-  <a href="https://labostest.firebaseio.com/"> Baza </a>
-
-  <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
+  <div class="col-sm-4 table" style="background-color:lavender;">
 
 <ngx-tabset>
-  <ngx-tab title="PRODUKTY">
+  <ngx-tab title="PRODUKTY" >
     <app-products> </app-products>
   </ngx-tab>
   <ngx-tab title="UZYTKOWNICY">
@@ -35,7 +32,7 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
     <app-wprowadz-ilosc> </app-wprowadz-ilosc>
   </ngx-tab>
 </ngx-tabset>
-  
+  </div>
   `,
   styleUrls: ['./alltabs.component.css']
 })

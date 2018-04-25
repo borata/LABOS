@@ -63,7 +63,7 @@ export class UzytkownicyComponent implements OnInit {
     db.list('/uzytkownicy').valueChanges()
    .subscribe(uzytkownicy => {
      this.uzytkownicy = uzytkownicy;
-     console.log(this.uzytkownicy);
+     this.data.load(uzytkownicy);
    } )
 
    }

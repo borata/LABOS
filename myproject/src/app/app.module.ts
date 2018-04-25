@@ -18,6 +18,8 @@ import { ProducenciComponent } from './producenci/producenci.component';
 import { OznaczeniaComponent } from './oznaczenia/oznaczenia.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
@@ -32,9 +34,9 @@ const appRoutes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'strefy', component: AlltabsComponent },
-  { path: 'wprowadz_id', component: WprowadzIdComponent},
-  {path: 'substancja', component: SubstancjaComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'wprowadz_id', component: WprowadzIdComponent },
+  { path: 'substancja', component: SubstancjaComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 
   {
     path: 'login',
