@@ -31,6 +31,9 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
   <ngx-tab title="OZNACZENIA" >
     <app-oznaczenia> </app-oznaczenia>
   </ngx-tab>
+  <ngx-tab title="WPROWADZ ILOSC" >
+    <app-wprowadz-ilosc> </app-wprowadz-ilosc>
+  </ngx-tab>
 </ngx-tabset>
   
   `,

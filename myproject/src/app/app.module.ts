@@ -1,3 +1,4 @@
+import { WprowadzIloscComponent } from './../wprowadz_ilosc/wprowadz-ilosc.component';
 import { LoginService } from './services/login.service';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -21,7 +22,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 //dodałam poniżej application routes 
 
 const appRoutes: Routes = [
@@ -54,6 +54,7 @@ const appRoutes: Routes = [
     UzytkownicyComponent,
     ProducenciComponent,
     OznaczeniaComponent,
+    WprowadzIloscComponent,
     LoginComponent
   ],
   imports: [
