@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {TabsModule} from "ngx-tabset";
+import {AngularFireAuth} from 'angularfire2/auth';
+import { Observable } from 'rxjs/Observable';
+
 
 
 @Component({
@@ -36,16 +39,13 @@ export class ProducenciComponent implements OnInit {
     db.list('/producenci').valueChanges()
    .subscribe(producenci => {
      this.producenci = producenci;
-     console.log(this.producenci);
+     this.data.load(producenci)
      
    } )
 
   }
- 
-  
- 
-  
   ngOnInit() {
+    
   }
 
 }

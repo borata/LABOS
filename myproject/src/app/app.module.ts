@@ -14,7 +14,7 @@ import { ProducenciComponent } from './producenci/producenci.component';
 import { OznaczeniaComponent } from './oznaczenia/oznaczenia.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {AngularFireAuth} from 'angularfire2/auth';
  
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import { OznaczeniaComponent } from './../oznaczenia/oznaczenia.component';
 import { ProductsComponent } from './../products/products.component';
 import { Component, OnInit } from '@angular/core';
-import {TabsModule} from "ngx-tabset";
+import { TabsModule} from "ngx-tabset";
 import { UzytkownicyComponent } from '../uzytkownicy/uzytkownicy.component';
 import { ProducenciComponent } from '../producenci/producenci.component';
 import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
@@ -14,10 +14,8 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
   selector: 'app-alltabs',
   template: `
 
-  <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
-
 <ngx-tabset>
-  <ngx-tab title="PRODUKTY">
+  <ngx-tab title="PRODUKTY" >
     <app-products> </app-products>
   </ngx-tab>
   <ngx-tab title="UZYTKOWNICY">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {TabsModule} from "ngx-tabset";
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Component({
   selector: 'app-oznaczenia',
@@ -34,7 +35,7 @@ export class OznaczeniaComponent implements OnInit {
     db.list('/oznaczenia').valueChanges()
     .subscribe(oznaczenia => {
       this.oznaczenia = oznaczenia;
-      console.log(this.oznaczenia);
+      this.data.load(oznaczenia)
     } )
   }
 
