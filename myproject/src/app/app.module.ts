@@ -1,3 +1,6 @@
+import { LoginService } from './services/login.service';
+import { AuthenticationGuard } from './guards/authentication.guard';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment.prod';
 import { ProductsService } from './products/products.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,14 +19,32 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 //dodałam poniżej application routes 
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'strefy', component: AlltabsComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full'}
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'strefy',
+    component: AlltabsComponent,
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '/login',
+  }
 ]
+
 
 @NgModule({
   declarations: [
@@ -37,7 +58,11 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFireDatabaseModule,
     Ng2SmartTableModule,
     TabsModule.forRoot(),
@@ -46,11 +71,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
+    LoginService,
+    AuthenticationGuard,
     ProductsService,
-
   ],
   bootstrap: [AppComponent]
-
-
 })
 export class AppModule { }

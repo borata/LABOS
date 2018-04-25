@@ -54,3 +54,13 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.d-flex {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.mt-20{
+    margin-top: 20px;
+}
