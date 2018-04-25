@@ -20,11 +20,22 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+
+import { WprowadzIdComponent } from './wprowadz-id/wprowadz-id.component';
+import { SubstancjaComponent } from './substancja/substancja.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 //dodałam poniżej application routes 
 
 const appRoutes: Routes = [
+
+  { path: 'login', component: LoginComponent },
+  { path: 'strefy', component: AlltabsComponent },
+  { path: 'wprowadz_id', component: WprowadzIdComponent},
+  {path: 'substancja', component: SubstancjaComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+
   {
     path: 'login',
     component: LoginComponent
@@ -43,6 +54,7 @@ const appRoutes: Routes = [
     path: '**',
     redirectTo: '/login',
   }
+
 ]
 
 
@@ -55,7 +67,9 @@ const appRoutes: Routes = [
     ProducenciComponent,
     OznaczeniaComponent,
     WprowadzIloscComponent,
-    LoginComponent
+    LoginComponent,
+    WprowadzIdComponent,
+    SubstancjaComponent
   ],
   imports: [
     BrowserModule,
