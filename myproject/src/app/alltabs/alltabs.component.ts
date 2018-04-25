@@ -13,6 +13,7 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
 @Component({
   selector: 'app-alltabs',
   template: `
+  <div class="col-sm-4 table" style="background-color:lavender;">
 
 <ngx-tabset>
   <ngx-tab title="PRODUKTY" >
@@ -28,7 +29,7 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
     <app-oznaczenia> </app-oznaczenia>
   </ngx-tab>
 </ngx-tabset>
-  
+  </div>
   `,
   styleUrls: ['./alltabs.component.css']
 })

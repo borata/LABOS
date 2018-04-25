@@ -1,0 +1,47 @@
+<div class="overlay"></div>
+<div class="full-screen-img"></div>
+<div class="login-holder absolut-center">
+    <div class="row h-100">
+        <div class="col-sm-6 h-100">
+            <img class="logo" src="assets/images/logo2.png" alt="">
+        </div>
+        <div class="col-sm-6 h-100">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="absolut-center width200">
+                    <div class="form-group">
+                        <label for="usr">E-mail:</label>
+                        <input type="text" class="form-control" id="usr" formControlName="login">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Hasło:</label>
+                        <input type="password" class="form-control" id="pwd" formControlName="password">
+                    </div>
+                    <div class="d-flex">
+                        <!-- <button class="btn btn-info" (click)="signup()" routerLinkActive="active-link">
+                        Zerejestruj się
+                    </button> -->
+                        <button class="btn btn-info mt-20" type="submit" routerLinkActive="active-link">
+                            Zaloguj się
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="header">
+    <h4>in progress...</h4>
+    
+</div>
+
+<div class="container">
+    
+    <button class="btn btn-info ng-click" routerLink="/strefy" routerLinkActive="active-link">
+      
+        ZALOGUJ SIĘ
+       
+    </button>
+    
+</div> -->
