@@ -9,7 +9,7 @@ import {
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate, CanActivateChild {
-    loginService: any;
+    loginService: LoginService;
 
     constructor(private router: Router, private injector: Injector) {
         this.loginService = this.injector.get(LoginService);

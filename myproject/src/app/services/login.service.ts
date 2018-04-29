@@ -10,7 +10,7 @@ export class LoginService {
     user: Observable<firebase.User>;
     userUID: string;
 
-    constructor(private firebaseAuth: AngularFireAuth, private fireDb: AngularFireDatabase) {
+    constructor(private firebaseAuth: AngularFireAuth) {
         this.user = firebaseAuth.authState;
     }
 
