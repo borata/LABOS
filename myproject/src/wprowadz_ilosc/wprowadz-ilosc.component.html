@@ -1,29 +1,41 @@
-<div>
-<div class="container color-dark">
-  <div class="col">
-        <p>Tutaj mozesz wprowadzic ilosc zuzytej substancji</p>
-    </div>
-    <div class="col">
-      <p>Zuzyte substancje ({{ itemCount }})</p>
-    </div>
-</div>
-<div class="container color-light" >
-    <div class="col">
-        <p class="sm">Z jaka substancja pracowales i ile ml jej zuzyles ?</p>
+<div class="overlay"></div>
+<div class="full-screen-img"></div>
+<div class="holder absolut-center container-fluid">
 
-        <form>
-            <select class='select-option' required [(ngModel)]='wybranyProdukt' name = "selectProduct" >
-                <option class='option' *ngFor='let produkt of (produkty$ | async)' [value]="produkt">{{produkt.nazwaChemiczna+'('+produkt.iloscPosiadana+')'}}</option>
-            </select>
-            <input type="number" class="txt" name="item1" placeholder="Ilosc" [(ngModel)]="substanceAmount" required>
-            <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center">Wybierz substancję</h2>
+            <!-- <div class=""> -->
+            <!-- <p>Wprowadź ilość zużytej substancji</p> -->
+            <!-- </div> -->
 
-        </form>
+            <!-- <div class="col">
+                    <p>Zużyte substancje: ({{ itemCount }})</p>
+                </div> -->
+        </div>
     </div>
-    <div class="col">
-        <p class="substances-container" *ngFor="let substance of usedSubstances">
-            {{ substance.wybranyProdukt.nazwaChemiczna }}
-        </p>
+    <div class="absolut-center blabla">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <form>
+                        <select class='select-option' required [(ngModel)]='wybranyProdukt' name="selectProduct">
+                            <option class='option' *ngFor='let produkt of (produkty$ | async)' [value]="produkt">{{produkt.nazwaChemiczna+'('+produkt.iloscPosiadana+')'}}</option>
+                        </select>
+                        <p>Wprowadź ilość zużytej substancji</p>
+                        <input type="number" class="txt" name="item1" placeholder="Ilosc" [(ngModel)]="substanceAmount" required>
+                        <br>
+                        <button class="btn btn-info" type="submit" (click)="addItem()">{{btnText}}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <!-- <div class="col">
+                    <p class="substances-container" *ngFor="let substance of usedSubstances">
+                        {{ substance.wybranyProdukt.nazwaChemiczna }}
+                    </p>
+                </div> -->
+    <!-- </div> -->
+
 </div>

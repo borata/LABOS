@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
   templateUrl: './wprowadz-id.component.html',
   styleUrls: ['./wprowadz-id.component.css']
 })
-export class WprowadzIdComponent  {
+export class WprowadzIdComponent {
 
   [x: string]: any;
   starRate = 2;
@@ -23,22 +23,13 @@ export class WprowadzIdComponent  {
       }
     }
   };
-
   data: LocalDataSource = new LocalDataSource();
-
-
-  constructor(db: AngularFireDatabase){
+  constructor(db: AngularFireDatabase) {
     db.list('/produkty').valueChanges()
-      .subscribe(products=>{
-      this.products = products;
-      this.data.load(products)
-      JSON.stringify(this.products);
-    });
-
-   
-
+      .subscribe(products => {
+        this.products = products;
+        this.data.load(products)
+        JSON.stringify(this.products);
+      });
   }
-
-  
-
 }
