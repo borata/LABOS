@@ -13,12 +13,14 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
 @Component({
   selector: 'app-alltabs',
   template: `
-  <div class="col-sm-4 table" style="background-color:lavender;">
-
+  
+  <div  style="background-color:lavender;">
 <ngx-tabset>
+
   <ngx-tab title="PRODUKTY" >
     <app-products> </app-products>
   </ngx-tab>
+  
   <ngx-tab title="UZYTKOWNICY">
     <app-uzytkownicy> </app-uzytkownicy>
   </ngx-tab>
@@ -32,7 +34,8 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
     <app-wprowadz-ilosc> </app-wprowadz-ilosc>
   </ngx-tab>
 </ngx-tabset>
-  </div>
+</div>
+ 
   `,
   styleUrls: ['./alltabs.component.css']
 })

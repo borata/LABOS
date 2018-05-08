@@ -5,23 +5,23 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
     selector: 'app-wprowadz-ilosc',
     templateUrl: './wprowadz-ilosc.component.html',
     styleUrls: ['./wprowadz-ilosc.component.css'],
-    animations: [
+    // animations: [
 
-        trigger('goals', [
-            transition('* => *', [
+    //     trigger('goals', [
+    //         transition('* => *', [
 
-                query(':enter', style({ opacity: 0 }), { optional: true }),
+    //             query(':enter', style({ opacity: 0 }), { optional: true }),
 
-                query(':enter', stagger('300ms', [
-                    animate('.6s ease-in', keyframes([
-                        style({ opacity: 0, transform: 'translateY(-75%)', offset: 0 }),
-                        style({ opacity: .5, transform: 'translateY(35px)', offset: 0.3 }),
-                        style({ opacity: 1, transform: 'translateY(0)', offset: 1.0 }),
-                    ]))]), { optional: true })
-            ])
-        ])
+    //             query(':enter', stagger('300ms', [
+    //                 animate('.6s ease-in', keyframes([
+    //                     style({ opacity: 0, transform: 'translateY(-75%)', offset: 0 }),
+    //                     style({ opacity: .5, transform: 'translateY(35px)', offset: 0.3 }),
+    //                     style({ opacity: 1, transform: 'translateY(0)', offset: 1.0 }),
+    //                 ]))]), { optional: true })
+    //         ])
+    //     ])
 
-    ]
+    // ]
 })
 export class WprowadzIloscComponent implements OnInit {
 

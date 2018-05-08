@@ -24,9 +24,6 @@ export class ProducenciComponent implements OnInit {
     columns: {
       nazwaFirmy: {
         title: 'nazwaFirmy'
-      },
-      adres: {
-        title: 'adres'
       }
     } 
   };
@@ -34,7 +31,7 @@ export class ProducenciComponent implements OnInit {
   
   data: LocalDataSource = new LocalDataSource();
   
-  constructor(db: AngularFireDatabase) { 
+  constructor(private db: AngularFireDatabase) { 
 
     db.list('/producenci').valueChanges()
    .subscribe(producenci => {
@@ -46,6 +43,23 @@ export class ProducenciComponent implements OnInit {
   }
   ngOnInit() {
     
+  }
+
+  create(event, product: HTMLInputElement) {
+ 
+    if (window.confirm('Are you sure you want to create?')) {
+   
+      event.confirm.resolve(event.newData);
+      if( event.newData != ''){
+          console.log(event.newData)
+      event.newData.createdDate = new Date() ; 
+     
+           this.db.list('/producenci').push(event.newData);
+ 
+      }
+    } else {
+      event.confirm.reject();
+    }
   }
 
 }

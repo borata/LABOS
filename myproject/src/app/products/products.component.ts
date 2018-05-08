@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ProductsService } from './products.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { LocalDataSource } from 'ng2-smart-table';
 import {TabsModule} from "ngx-tabset";
 import {AngularFireAuth} from 'angularfire2/auth';
+
 
 
 
@@ -17,56 +19,81 @@ import {AngularFireAuth} from 'angularfire2/auth';
   selector: 'app-products',
   template: `  
  
-  <pre>
-  <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
-  {{products | json }}
-  </pre>
-  
+  <div class="tableproducts">
+    <pre>
+    <ng2-smart-table [settings]="settings" [source]="data" 
+    (createConfirm)="create($event)"  
+     ></ng2-smart-table>
+    {{products | json }}
+    </pre>
+  </div>
 
   `,
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
 
+@Injectable()
+export class ProductsComponent implements OnInit {
+  
+  
+  products$: Observable<any>;
   products: any[]; //atrybuty
   oznaczenia: any[];
 producenci: any[];
+
   
  
   settings = {
+    add:
+    {
+      confirmCreate: true,
+    },
+    delete: {
+      confirmDelete: true,
+    },
     columns: {
       IDnumerCAS: {
-        title: 'IDnumerCAS'
+        title: 'IDnumerCAS',
+        type: 'string',        
       },
       dataAktualizacji: {
-        title: 'DataAktualizacji'
+        title: 'DataAktualizacji',
       },
       materialNiebezpieczny: {
-        title: 'MaterialNiebezpieczny'
+        title: 'MaterialNiebezpieczny',
+        type: 'boolean',  
       },
       nazwaChemiczna: {
-        title: 'nazwaChemiczna'
+        title: 'nazwaChemiczna',
+        type: 'string',
       },
       przeznaczenie: {
-        title: 'przeznaczenie'
+        title: 'przeznaczenie',
+        type: 'string',
       },
       zwrotWskazujacyRodzajZagrozeniaH: {
-        title: 'zwrotWskazujacyRodzajZagrozeniaH'
+        title: 'zwrotWskazujacyRodzajZagrozeniaH',
+        type: 'string',
       },
       zwrotyWskazujaceSrodkiOstroznosciP: {
-        title: 'zwrotyWskazujaceSrodkiOstroznosciP'
+        title: 'zwrotyWskazujaceSrodkiOstroznosciP',
+        type: 'string',
       },
       symboleOstrzegawcze: {
-        title: 'symboleOstrzegawcze'
+        title: 'symboleOstrzegawcze',
+        type: 'string',
       },
       zwrotRyzykaR: {
-        title: 'zwrotRyzykaR'
+        title: 'zwrotRyzykaR',
+        type: 'string',
       },
       zwrotyBezpieczenstwaS: {
-        title: 'nazwaChemiczna'
+        title: 'zwrotyBezpieczenstwaS ',
+        type: 'string',
       },
       iloscPosiadana: {
-        title: 'nazwaChemiczna'
+        title: ' iloscPosiadana',
+        type: 'number',
       },
       godzinaAktualizacji: {
         title: 'godzinaAktualizacji'
@@ -80,16 +107,15 @@ producenci: any[];
       osobaOdpowiedzialna: {
         title: 'osobaOdpowiedzialna'
       }
-    },
-    attr: {
-      class: 'table table-bordered'
-    },
+    }
   };
+
 
   
   data: LocalDataSource = new LocalDataSource();
   
-  constructor (db: AngularFireDatabase) {
+  items: Observable<any[]>;
+  constructor ( private db: AngularFireDatabase) {
 
    db.list('/produkty').valueChanges()
    .subscribe(products => {
@@ -99,7 +125,39 @@ producenci: any[];
    } ) 
 }
   ngOnInit() {
+    console.log('adasdsadasds')
+ 
   }
 
+
+ 
+  create(event, product: HTMLInputElement) {
+ 
+    if (window.confirm('Are you sure you want to create?')) {
+   
+      event.confirm.resolve(event.newData);
+      if( event.newData != ''){
+          console.log(event.newData)
+      event.newData.createdDate = new Date() ; 
+     
+           this.db.list('/produkty').push(event.newData);
+ 
+      }
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  // onDeleteConfirm(event): void {
+  //   if (window.confirm('Czy usunąć?')) {
+  //     console.log(event)
+  //     event.confirm.resolve();
+  //     this.db.object('/produkty').remove();
+
+     
+  //   } else {
+  //     event.confirm.reject();
+  //   }
+  // }
 }
 

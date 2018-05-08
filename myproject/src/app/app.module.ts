@@ -17,7 +17,7 @@ import { UzytkownicyComponent } from './uzytkownicy/uzytkownicy.component';
 import { ProducenciComponent } from './producenci/producenci.component';
 import { OznaczeniaComponent } from './oznaczenia/oznaczenia.component';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -74,6 +74,7 @@ const appRoutes: Routes = [
     SubstancjaComponent
   ],
   imports: [
+    NoopAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,

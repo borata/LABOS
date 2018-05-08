@@ -31,7 +31,7 @@ export class OznaczeniaComponent implements OnInit {
     } 
   };
   data: LocalDataSource = new LocalDataSource();
-  constructor(db: AngularFireDatabase) { 
+  constructor(private db: AngularFireDatabase) { 
     db.list('/oznaczenia').valueChanges()
     .subscribe(oznaczenia => {
       this.oznaczenia = oznaczenia;
@@ -40,6 +40,23 @@ export class OznaczeniaComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  create(event, product: HTMLInputElement) {
+ 
+    if (window.confirm('Are you sure you want to create?')) {
+   
+      event.confirm.resolve(event.newData);
+      if( event.newData != ''){
+          console.log(event.newData)
+      event.newData.createdDate = new Date() ; 
+     
+           this.db.list('/oznaczenia').push(event.newData);
+ 
+      }
+    } else {
+      event.confirm.reject();
+    }
   }
 
 }
