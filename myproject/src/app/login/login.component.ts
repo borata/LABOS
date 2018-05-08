@@ -13,7 +13,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 
 
-
 export class LoginComponent {
     loginForm: FormGroup;
 
@@ -32,7 +31,7 @@ export class LoginComponent {
             this.loginService.login(
                 this.loginForm.get('login').value,
                 this.loginForm.get('password').value,
-            ).then(() => this.router.navigate(['/strefy']));
+            ).then(() => this.router.navigate(['/substancja']));
         }
     }
 

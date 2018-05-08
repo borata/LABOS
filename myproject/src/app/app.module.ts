@@ -28,14 +28,15 @@ import { SubstancjaComponent } from './substancja/substancja.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //dodałam poniżej application routes 
 
 const appRoutes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'strefy', component: AlltabsComponent },
-  { path: 'wprowadz_id', component: WprowadzIdComponent },
-  { path: 'substancja', component: SubstancjaComponent },
+  { path: 'substancja', component: WprowadzIloscComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 
   {
@@ -85,7 +86,9 @@ const appRoutes: Routes = [
     TabsModule.forRoot(),
     CommonModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule.forRoot()
+    
   ],
   providers: [
     LoginService,
