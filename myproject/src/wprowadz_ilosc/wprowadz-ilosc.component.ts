@@ -32,6 +32,10 @@ export class WprowadzIloscComponent implements OnInit {
       this.produkty$ = this.fireDB.list('produkty').valueChanges();
     }
 
+    open(content){
+      this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
+    }
+
     addItem() {
         this.usedSubstances.push({
           wybranyProdukt: this.wybranyProdukt,
