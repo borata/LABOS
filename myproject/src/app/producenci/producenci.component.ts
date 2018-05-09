@@ -22,10 +22,10 @@ export class ProducenciComponent implements OnInit {
   settings = {
     columns: {
       nazwaFirmy: {
-        title: 'nazwaFirmy'
+        title: 'Nazwa Firmy'
       },
       adres: {
-        title: 'adres'
+        title: 'Adres'
       }
     } 
   };

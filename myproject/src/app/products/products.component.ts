@@ -35,53 +35,53 @@ producenci: any[];
   settings = {
     columns: {
       IDnumerCAS: {
-        title: 'IDnumerCAS'
+        title: 'Numer CAS'
       },
       dataAktualizacji: {
-        title: 'DataAktualizacji'
+        title: 'Data Aktualizacji'
       },
       materialNiebezpieczny: {
-        title: 'MaterialNiebezpieczny'
+        title: 'Material Niebezpieczny'
       },
       nazwaChemiczna: {
-        title: 'nazwaChemiczna'
+        title: 'nazwa Chemiczna'
       },
       przeznaczenie: {
         title: 'przeznaczenie'
       },
       zwrotWskazujacyRodzajZagrozeniaH: {
-        title: 'zwrotWskazujacyRodzajZagrozeniaH'
+        title: 'zwrot Wskazujacy Rodzaj Zagrozenia H'
       },
       zwrotyWskazujaceSrodkiOstroznosciP: {
-        title: 'zwrotyWskazujaceSrodkiOstroznosciP'
+        title: 'zwroty Wskazujace Srodki Ostroznosci P'
       },
       symboleOstrzegawcze: {
-        title: 'symboleOstrzegawcze'
+        title: 'symbole Ostrzegawcze'
       },
       zwrotRyzykaR: {
-        title: 'zwrotRyzykaR'
+        title: 'zwrot RyzykaR'
       },
       zwrotyBezpieczenstwaS: {
-        title: 'nazwaChemiczna'
+        title: ' zwroty Bezpieczenstwa S'
       },
       iloscPosiadana: {
-        title: 'nazwaChemiczna'
+        title: 'ilosc Posiadana'
       },
       godzinaAktualizacji: {
-        title: 'godzinaAktualizacji'
+        title: 'godzina Aktualizacji'
       },
       miejscePrzechowywania: {
-        title: 'miejscePrzechowywania'
+        title: 'miejsce Przechowywania'
       },
       wydzial: {
         title: 'wydzial'
       },
       osobaOdpowiedzialna: {
-        title: 'osobaOdpowiedzialna'
+        title: 'osoba Odpowiedzialna'
       }
     },
     attr: {
-      class: 'table table-bordered'
+      class: 'wymyslona'
     },
   };
 

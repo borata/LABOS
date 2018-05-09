@@ -19,13 +19,13 @@ export class OznaczeniaComponent implements OnInit {
   settings = {
     columns: {
       status: {
-        title: 'status'
+        title: 'Status'
       },
       zwrot: {
-        title: 'zwrot'
+        title: 'Zwrot'
       },
       slownie: {
-        title: 'slownie'
+        title: 'Slownie'
       }
     } 
   };

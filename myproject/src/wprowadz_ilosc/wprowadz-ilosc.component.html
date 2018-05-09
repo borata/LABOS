@@ -8,8 +8,6 @@
             <!-- <div class=""> -->
             <!-- <p>Wprowadź ilość zużytej substancji</p> -->
             <!-- </div> -->
-
-       
         </div>
     </div>
     <div class="absolut-center blabla">
@@ -26,7 +24,7 @@
                         <div class="col">
                             <p>Zużyte substancje: ({{ itemCount }})</p>
                         </div>
-                        
+
                         <a class="kolor" [routerLink]="['/strefy']"> Tabela </a>
                     </form>
                 </div>
@@ -57,6 +55,6 @@
 
         <button type="button" class="btn" [routerLink]="['/strefy']" (click)="c('Close click')">Tabela</button>
         <button type="button" class="btn btn-danger" (click)="c('Close click')">Close</button>
-        
+
     </div>
 </ng-template>
