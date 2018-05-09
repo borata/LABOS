@@ -19,7 +19,6 @@ import {AngularFireAuth} from 'angularfire2/auth';
  
   <pre>
   <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
-  {{products | json }}
   </pre>
   
 
@@ -89,7 +88,7 @@ producenci: any[];
   
   data: LocalDataSource = new LocalDataSource();
   
-  constructor (db: AngularFireDatabase) {
+  constructor (private db: AngularFireDatabase) {
 
    db.list('/produkty').valueChanges()
    .subscribe(products => {
@@ -101,5 +100,21 @@ producenci: any[];
   ngOnInit() {
   }
 
-}
+  create(event, product: HTMLInputElement) {
+ 
+    if (window.confirm('Are you sure you want to create?')) {
+   
+      event.confirm.resolve(event.newData);
+      if( event.newData != ''){
+          console.log(event.newData)
+      event.newData.createdDate = new Date() ; 
+     
+           this.db.list('/produkty').push(event.newData);
+ 
+      }
+    } else {
+      event.confirm.reject();
+    }
+
+}}
 

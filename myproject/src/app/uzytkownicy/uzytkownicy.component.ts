@@ -9,7 +9,7 @@ import {TabsModule} from "ngx-tabset";
   template: `
   <pre>
   <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
-  {{uzytkownicy | json }}
+  
   </pre>
   `,
   styleUrls: ['./uzytkownicy.component.css']
@@ -58,7 +58,7 @@ export class UzytkownicyComponent implements OnInit {
 
   data: LocalDataSource = new LocalDataSource();
   
-  constructor(db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase) {
 
     db.list('/uzytkownicy').valueChanges()
    .subscribe(uzytkownicy => {
@@ -70,5 +70,20 @@ export class UzytkownicyComponent implements OnInit {
 
   ngOnInit() {
   }
-
+create(event, product: HTMLInputElement) {
+ 
+    if (window.confirm('Are you sure you want to create?')) {
+   
+      event.confirm.resolve(event.newData);
+      if( event.newData != ''){
+          console.log(event.newData)
+      event.newData.createdDate = new Date() ; 
+     
+           this.db.list('/uzytkownicy').push(event.newData);
+ 
+      }
+    } else {
+      event.confirm.reject();
+    }
+}
 }
