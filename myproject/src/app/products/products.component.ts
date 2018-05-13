@@ -18,12 +18,12 @@ import {AngularFireAuth} from 'angularfire2/auth';
   template: `  
  
   <pre>
-  <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
+  <ng2-smart-table [settings]="settings" (createConfirm)="create($event)" [source]="data" ></ng2-smart-table>
   </pre>
   
 
   `,
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
 
@@ -33,6 +33,10 @@ producenci: any[];
   
  
   settings = {
+    add : 
+    {
+      confirmCreate : true 
+    },
     columns: {
       IDnumerCAS: {
         title: 'Numer CAS'
@@ -108,7 +112,8 @@ producenci: any[];
       if( event.newData != ''){
           console.log(event.newData)
       event.newData.createdDate = new Date() ; 
-     
+     console.log('aaaasdsd')
+     console.log(event.newData)
            this.db.list('/produkty').push(event.newData);
  
       }

@@ -32,9 +32,11 @@ export class LoginService {
             .then(value => {
                 localStorage.setItem('user', value.uid);
                 this.userUID = value.uid;
+                return value
             })
             .catch(err => {
                 console.log('Something went wrong:', err.message);
+                return err.message
             });
     }
 

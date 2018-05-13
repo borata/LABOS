@@ -11,8 +11,9 @@ import {TabsModule} from "ngx-tabset";
   <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
   
   </pre>
-  `,
-  styleUrls: ['./uzytkownicy.component.css']
+  `
+  ,
+  styleUrls: ['./uzytkownicy.component.scss']
 })
 export class UzytkownicyComponent implements OnInit {
 

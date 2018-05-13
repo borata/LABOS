@@ -31,7 +31,15 @@ export class LoginComponent {
             this.loginService.login(
                 this.loginForm.get('login').value,
                 this.loginForm.get('password').value,
-            ).then(() => this.router.navigate(['/substancja']));
+            
+            ).then(res => {
+                if(res.uid)
+                this.router.navigate(['/wybierzstrefe'])
+            },err => {console.log(err)}
+                
+               );
+        } else {
+
         }
     }
 

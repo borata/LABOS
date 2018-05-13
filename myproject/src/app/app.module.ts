@@ -1,3 +1,4 @@
+
 import { WprowadzIloscComponent } from './../wprowadz_ilosc/wprowadz-ilosc.component';
 import { LoginService } from './services/login.service';
 import { AuthenticationGuard } from './guards/authentication.guard';
@@ -25,7 +26,7 @@ import { LoginComponent } from './login/login.component';
 
 import { WprowadzIdComponent } from './wprowadz-id/wprowadz-id.component';
 import { SubstancjaComponent } from './substancja/substancja.component';
-
+import {WybierzStrefeComponent} from './wybierz-strefe/wybierz-strefe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   { path: 'strefy', component: AlltabsComponent },
   { path: 'substancja', component: WprowadzIloscComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'wybierzstrefe', component: WybierzStrefeComponent },
 
   {
     path: 'login',
@@ -72,7 +74,8 @@ const appRoutes: Routes = [
     WprowadzIloscComponent,
     LoginComponent,
     WprowadzIdComponent,
-    SubstancjaComponent
+    SubstancjaComponent,
+    WybierzStrefeComponent
   ],
   imports: [
     BrowserModule,
