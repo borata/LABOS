@@ -1,3 +1,21 @@
-<p>
-  producenci works!
-</p>
+<div class="navlist">
+  <table class="table">
+    <th class="col-sm">nazwaFirmy</th>
+    <th class="col-sm">adres</th>
+  </table>
+</div>
+
+<div class="lista" *ngFor="let producent of (producenci$ | async) ">
+  <div class="Row" [routerLink]="['/producenci']">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th class="col-sm">{{ producent.nazwaFirmy }}</th>
+            <th class="col-sm">{{ producent.adres }}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

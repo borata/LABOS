@@ -1,8 +1,25 @@
-<p>
-  products works!
-</p>
-<ul>
-  <li *ngFor="let product of products$ | async">
-    {{ products }}
-  </li>
-</ul>
+<div class="navlist">
+    <table class="table">
+      <th class="col-sm">IDnumerCAS</th>
+      <th class="col-sm">nazwaChemiczna</th>
+      <th class="col-sm">iloscPosiadana</th>
+      <th class="col-sm">rodzaj</th>
+    </table>
+  </div>
+  
+  <div class="lista" *ngFor="let produkt of (produkty$ | async) ">
+    <div class="Row" [routerLink]="['/produkty']">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tbody>
+            <tr>
+              <th class="col-sm">{{ produkt.IDnumerCAS }}</th>
+              <th class="col-sm">{{ produkt.nazwaChemiczna }}</th>
+              <th class="col-sm">{{ produkt.iloscPosiadana }}</th>
+              <th class="col-sm">{{ produkt.rodzaj }}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

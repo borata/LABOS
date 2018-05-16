@@ -1,3 +1,29 @@
-<p>
-  uzytkownicy works!
-</p>
+<div class="navlist">
+    <table class="table">
+      <th class="col-sm">Imie</th>
+      <th class="col-sm">Nazwisko</th>
+      <th class="col-sm">Wydzial</th>
+      <th class="col-sm">Kierunek</th>
+      <th class="col-sm">Grupa Zajeciowa</th>
+      <th class="col-sm">Numer Indeksu</th>
+    </table>
+  </div>
+  
+  <div class="lista" *ngFor="let uzytkownik of (uzytkownicy$ | async) ">
+    <div class="Row" [routerLink]="['/uzytkownicy']">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tbody>
+            <tr>
+              <th class="col-sm">{{ uzytkownik.imie }}</th>
+              <th class="col-sm">{{ uzytkownik.nazwisko }}</th>
+              <th class="col-sm">{{ uzytkownik.Wydzial }}</th>
+              <th class="col-sm">{{ uzytkownik.kierunek }}</th>
+              <th class="col-sm">{{ uzytkownik.grupaZajeciowa }}</th>
+              <th class="col-sm">{{ uzytkownik.numerIndeksu }}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

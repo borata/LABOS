@@ -22,11 +22,16 @@ export class WprowadzIloscComponent implements OnInit {
     fireDB: AngularFireDatabase;
     produkty$: Observable<any>;
     wybranyProdukt;
+    
+
     constructor(fireDB: AngularFireDatabase, private modalService: NgbModal) {
       this.fireDB = fireDB;
     
+      
+  
     }
 
+   
 
     ngOnInit() {
       this.produkty$ = this.fireDB.list('produkty').valueChanges();
@@ -48,6 +53,15 @@ export class WprowadzIloscComponent implements OnInit {
     onOptionsSelected(event){
       console.log(event);
       console.log(this.wybranyProdukt);
+    }
+
+    update(event, newValue:string){
+
+      event.confirm.resolve(event);
+      
+      event.newData.upd = new Date() ; 
+      this.fireDB.object('/produkt.iloscPosiadana/').update(event.newData);
+
     }
 
 }

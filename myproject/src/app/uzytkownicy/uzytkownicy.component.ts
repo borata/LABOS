@@ -1,90 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import {TabsModule} from "ngx-tabset";
+import {AngularFireAuth} from 'angularfire2/auth';
+import { Observable } from 'rxjs/Observable';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
   selector: 'app-uzytkownicy',
-  template: `
-  <pre>
-  <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
-  
-  </pre>
-  `
-  ,
-  styleUrls: ['./uzytkownicy.component.scss']
+  templateUrl: './uzytkownicy.component.html',
+  styleUrls: ['./uzytkownicy.component.css']
 })
 export class UzytkownicyComponent implements OnInit {
 
-  uzytkownicy: any[];
-  settings = {
-    columns: {
-      Iduzytkownika: {
-        title: 'IIduzytkownika'
-      },
-      rola: {
-        title: 'rola'
-      },
-      imie: {
-        title: 'imie'
-      },
-      nazwisko: {
-        title: 'nazwisko'
-      },
-      email: {
-        title: 'email'
-      },
-      numerIndeksu: {
-        title: 'numerIndeksu'
-      },
-      wydzial: {
-        title: 'wydzial'
-      },
-      kierunek: {
-        title: 'kierunek'
-      },
-      rokStudiow: {
-        title: 'rokStudiow'
-      },
-      grupaZajeciowa: {
-        title: 'grupaZajeciowa'
-      },
-      numerTelefonuw: {
-        title: 'numerTelefonu'
-      }
-    } 
-  };
+  fireDB: AngularFireDatabase;
+  uzytkownicy$: Observable<any>;
 
-
-  data: LocalDataSource = new LocalDataSource();
   
-  constructor(private db: AngularFireDatabase) {
-
-    db.list('/uzytkownicy').valueChanges()
-   .subscribe(uzytkownicy => {
-     this.uzytkownicy = uzytkownicy;
-     this.data.load(uzytkownicy);
-   } )
-
-   }
-
-  ngOnInit() {
+  constructor(fireDB: AngularFireDatabase, private modalService: NgbModal) {
+    this.fireDB = fireDB;
+  
   }
-create(event, product: HTMLInputElement) {
- 
-    if (window.confirm('Are you sure you want to create?')) {
-   
-      event.confirm.resolve(event.newData);
-      if( event.newData != ''){
-          console.log(event.newData)
-      event.newData.createdDate = new Date() ; 
-     
-           this.db.list('/uzytkownicy').push(event.newData);
- 
-      }
-    } else {
-      event.confirm.reject();
-    }
-}
+  ngOnInit() {
+    this.uzytkownicy$ = this.fireDB.list('uzytkownicy').valueChanges();
+  }
 }

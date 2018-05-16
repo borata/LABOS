@@ -1,58 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import {TabsModule} from "ngx-tabset";
 import {AngularFireAuth} from 'angularfire2/auth';
+import { Observable } from 'rxjs/Observable';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-oznaczenia',
-  template: `
-  <pre>
-  <ng2-smart-table [settings]="settings" [source]="data" ></ng2-smart-table>
-  </pre>
-  `,
+  templateUrl: './oznaczenia.component.html',
   styleUrls: ['./oznaczenia.component.css']
 })
 export class OznaczeniaComponent implements OnInit {
+ 
+  fireDB: AngularFireDatabase;
+  oznaczenia$: Observable<any>;
+  public values = '';
 
-  oznaczenia: any[];
-  settings = {
-    columns: {
-      status: {
-        title: 'Status'
-      },
-      zwrot: {
-        title: 'Zwrot'
-      },
-      slownie: {
-        title: 'Slownie'
-      }
-    } 
-  };
-  data: LocalDataSource = new LocalDataSource();
-  constructor(private db: AngularFireDatabase) { 
-    db.list('/oznaczenia').valueChanges()
-    .subscribe(oznaczenia => {
-      this.oznaczenia = oznaczenia;
-      this.data.load(oznaczenia)
-    } )
+  
+  constructor(fireDB: AngularFireDatabase, private modalService: NgbModal) {
+    this.fireDB = fireDB;
+  
   }
-
   ngOnInit() {
+    this.oznaczenia$ = this.fireDB.list('oznaczenia').valueChanges();
   }
-  create(event, product: HTMLInputElement) {
- 
-    if (window.confirm('Are you sure you want to create?')) {
-   
-      event.confirm.resolve(event.newData);
-      if( event.newData != ''){
-          console.log(event.newData)
-      event.newData.createdDate = new Date() ; 
-     
-           this.db.list('/oznaczenia').push(event.newData);
- 
-      }
-    } else {
-      event.confirm.reject();
-    }
-}}
+
+  onKey(event: any) { 
+    this.values = event.target.value ;
+  }
+}

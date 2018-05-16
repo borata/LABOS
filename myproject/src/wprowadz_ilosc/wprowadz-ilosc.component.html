@@ -20,7 +20,7 @@
                         </select>
                         <p class="topmargin">Wprowadź ilość zużytej substancji</p>
                         <input type="number" class="txt" name="item1" placeholder="Ilość" [(ngModel)]="substanceAmount" required>
-                        <button class="btn btn-info" type="submit" (click)="addItem(); open(content)">{{btnText}}</button>
+                        <button class="btn btn-info" type="submit" (click)="addItem($event); open(content)">{{btnText}}</button>
                         <div class="col">
                             <p>Zużyte substancje: ({{ itemCount }})</p>
                         </div>
