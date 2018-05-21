@@ -59,3 +59,11 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.width200 {
+    width: 200px;
+}
+.leftmargin{
+    margin-left:140px;
+
+}
+

@@ -18,22 +18,45 @@
                     <i class="fa fa-table fa-stack-1x fa-inverse"></i>
                 </span>
             </div>
-            <div class="item-holder text-center border border-info">
-                <a href="https://console.firebase.google.com/u/0/project/labostest/database/labostest/data">
+            <div class="item-holder text-center border border-info" (click)="open(content)">
+                <!-- <a href="https://console.firebase.google.com/u/0/project/labostest/database/labostest/data"> -->
                     <div class="h-100">
-                        <!-- https://console.firebase.google.com/u/0/project/labostest/database/labostest/data -->
                         <h4>STREFA ADMINISTRACYJNA</h4>
                         <span class="fa-stack fa-lg fa-size" style="height: 50%;">
                             <i class="fa fa-circle  fa-stack-2x"></i>
                             <i class="fa fa-database  fa-stack-1x fa-inverse"></i>
                         </span>
                     </div>
-                </a>
+                <!-- </a> -->
             </div>
         </div>
     </div>
 
 </div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Strefa dla osób uprawnionych</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" (ngSubmit)="haslo()" >
+        <p>Wprowadź hasło aby kontynuować:</p>
+    </div>
+    <div class="form-group width200 leftmargin">
+        <input required pattern="Profesor" ngModel name="Hasło" #Haslo="ngModel" (change)="log(Haslo)" type="password" class="form-control" placeholder="Hasło:">
+        <div class="alert alert-danger" *ngIf="Haslo.touched && !Haslo.valid">Hasło jest wymagane.
+        <div *ngIf="Haslo.errors.pattern">Niepoprawne hasło.</div> </div>
+    </div>
+    <div class="modal-footer">
+
+        <button type="button" class="btn" routerLinkActive="active-link" *ngIf="Haslo.valid" [routerLink]="['/strefy']" (click)="c('Close click')">Kontynuuj</button>
+
+    </div>
+</ng-template>
+
 
 
 <!-- <div class="header">
