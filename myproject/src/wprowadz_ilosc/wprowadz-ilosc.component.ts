@@ -20,35 +20,45 @@ export class WprowadzIloscComponent implements OnInit {
     substanceAmount: number;
     usedSubstances = [];
     fireDB: AngularFireDatabase;
+    listaProduktow: AngularFireList<any>
     produkty$: Observable<any>;
     wybranyProdukt;
-    
+    costam;
 
     constructor(fireDB: AngularFireDatabase, private modalService: NgbModal) {
       this.fireDB = fireDB;
-    
-      
-  
     }
 
    
 
     ngOnInit() {
-      this.produkty$ = this.fireDB.list('produkty').valueChanges();
+      this.listaProduktow = this.fireDB.list('produkty');
+      this.produkty$ = this.listaProduktow.snapshotChanges();
+       this.produkty$.subscribe(x => this.costam = x);
+
     }
 
     open(content){
       this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
     }
 
-    addItem() {
+    addItem(event,content) {
+      console.log(this.costam[0]);
+      if(this.wybranyProdukt && this.wybranyProdukt.iloscPosiadana!=0 && this.wybranyProdukt.iloscPosiadana>this.substanceAmount){
         this.usedSubstances.push({
           wybranyProdukt: this.wybranyProdukt,
           ilosc: this.substanceAmount,
         });
         console.log(this.usedSubstances);
         this.itemCount = this.usedSubstances.length;
+        this.open(content);
+        this.wybranyProdukt.iloscPosiadana -= this.substanceAmount;
+        console.log(this.wybranyProdukt.key);
     }
+    else {
+      alert('Wprowadzono niepoprawna ilosc');
+    }
+  }
 
     onOptionsSelected(event){
       console.log(event);

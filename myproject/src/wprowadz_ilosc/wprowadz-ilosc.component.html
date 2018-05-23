@@ -15,12 +15,12 @@
             <div class="col">
                 <div class="text-center">
                     <form>
-                        <select class='select-option' required [(ngModel)]='wybranyProdukt' name="selectProduct">
-                            <option class='option' *ngFor='let produkt of (produkty$ | async)' [value]="produkt">{{produkt.nazwaChemiczna+'('+produkt.iloscPosiadana+')'}}</option>
+                        <select class='select-option' required [(ngModel)]="wybranyProdukt" name="selectedProduct">
+                            <option class='option' *ngFor='let produkt of (produkty$ | async)' [ngValue]="produkt">{{produkt.nazwaChemiczna+'('+produkt.iloscPosiadana+')'}}</option>
                         </select>
                         <p class="topmargin">Wprowadź ilość zużytej substancji</p>
                         <input type="number" class="txt" name="item1" placeholder="Ilość" [(ngModel)]="substanceAmount" required>
-                        <button class="btn btn-info" type="submit" (click)="addItem($event); open(content)">{{btnText}}</button>
+                        <button class="btn btn-info" type="submit" (click)="addItem($event,content);">{{btnText}}</button>
                         <div class="col">
                             <p>Zużyte substancje: ({{ itemCount }})</p>
                         </div>
