@@ -52,6 +52,19 @@ a {
     width: 800px;
 }
 
+.btn-holder-logout{
+    height: 50px;
+    z-index: 100;
+    width: 200px;
+}
+
+.logout-position{
+    position: absolute;
+    top: 7%;
+    left: 92%;
+    transform: translate(-50%, -50%)
+}
+
 .full-screen-img{
     height: 100vh;
     background-image: url('assets/images/tlo.jpg');

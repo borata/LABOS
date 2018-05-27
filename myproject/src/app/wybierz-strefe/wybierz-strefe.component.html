@@ -1,5 +1,17 @@
 <div class="overlay"></div>
 <div class="full-screen-img"></div>
+<div class="btn-holder-logout logout-position">
+    <div class="container h-100">
+        <div class="item-holder-logout">
+            <!-- <button class="btn btn-info" (click)="signOut()" routerLinkActive="active-link">
+                Wyloguj się
+            </button> -->
+            <button class="btn btn-info" (click)="signOut()"  [routerLink]="['/login']">
+                Wyloguj się
+            </button>
+        </div>
+    </div>
+</div>
 <div class="btn-holder absolut-center">
     <div class="container-fluid h-100 ">
         <div class="row h-100 align-items-stretch justify-content-between">
@@ -52,7 +64,7 @@
     </div>
     <div class="modal-footer">
 
-        <button type="button" class="btn" routerLinkActive="active-link" *ngIf="Haslo.valid" [routerLink]="['/strefy']" (click)="c('Close click')">Kontynuuj</button>
+        <button type="button" class="btn" routerLinkActive="active-link" *ngIf="Haslo.valid" [routerLink]="['/strefyadmin']" (click)="c('Close click')">Kontynuuj</button>
 
     </div>
 </ng-template>
