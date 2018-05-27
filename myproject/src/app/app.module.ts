@@ -31,6 +31,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ProductsAdminComponent } from './products-admin/products-admin.component';
+import { ProducenciAdminComponent } from './producenci-admin/producenci-admin.component';
+import { OznaczeniaAdminComponent } from './oznaczenia-admin/oznaczenia-admin.component';
+import { UzytkownicyAdminComponent } from './uzytkownicy-admin/uzytkownicy-admin.component';
+import { AlltabsAdminComponent } from './alltabs-admin/alltabs-admin.component';
 //dodałam poniżej application routes 
 
 const appRoutes: Routes = [
@@ -58,7 +63,14 @@ const appRoutes: Routes = [
   {
     path: '**',
     redirectTo: '/login',
+  },
+
+  {
+    path: 'strefyadmin',
+    component: AlltabsAdminComponent,
+  
   }
+
 
 ]
 
@@ -75,7 +87,12 @@ const appRoutes: Routes = [
     LoginComponent,
     WprowadzIdComponent,
     SubstancjaComponent,
-    WybierzStrefeComponent
+    WybierzStrefeComponent,
+    ProductsAdminComponent,
+    ProducenciAdminComponent,
+    OznaczeniaAdminComponent,
+    UzytkownicyAdminComponent,
+    AlltabsAdminComponent
   ],
   imports: [
     BrowserModule,
