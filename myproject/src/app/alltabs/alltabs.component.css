@@ -1,1 +1,43 @@
 :host /deep/ ngx-tabset {color: #0c0c01;}
+
+    .container {
+        display: flex;
+        /* flex-direction: unset; */
+        grid-template-columns: 50% auto;
+            
+    }
+    
+    .holder {
+        background-color: ghostwhite;
+        height: 800px;
+        /* z-index: 100; */
+        width: 1500px;
+        -webkit-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.79);
+        -moz-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.79);
+        box-shadow: 0px 0px 53px 0px rgba(0,0,0,0.79);
+    }
+    
+    .absolut-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: scroll;
+    }
+
+    .overlay{
+        opacity: 0.5;
+        background-color: grey;
+        position: absolute;
+        width: 100vw;
+        height: calc(100vh);
+    }
+    
+    .full-screen-img{
+        height: calc(100vh);
+        background-image: url('assets/images/zdjeciewtle.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+   

@@ -12,28 +12,29 @@ import { LocalDataSource, Ng2SmartTableModule} from 'ng2-smart-table';
 
 @Component({
   selector: 'app-alltabs',
-  template: `
- <div class=""style="background-color:ghostwhite;">
+  templateUrl: './alltabs.component.html',
+//   template: `
+//  <div class=""style="background-color:ghostwhite;">
 
-<ngx-tabset>
-  <ngx-tab title="PRODUKTY" >
-    <app-products> </app-products>
-  </ngx-tab>
-  <ngx-tab title="UZYTKOWNICY">
-    <app-uzytkownicy> </app-uzytkownicy>
-  </ngx-tab>
-  <ngx-tab title="PRODUCENCI" >
-    <app-producenci> </app-producenci>
-  </ngx-tab>
-  <ngx-tab title="OZNACZENIA" >
-    <app-oznaczenia> </app-oznaczenia>
-  </ngx-tab>
-  <ngx-tab title="WPROWADZ ILOSC" >
-    <app-wprowadz-ilosc> </app-wprowadz-ilosc>
-  </ngx-tab>
-</ngx-tabset>
-</div>
-  `,
+// <ngx-tabset>
+//   <ngx-tab title="PRODUKTY" >
+//     <app-products> </app-products>
+//   </ngx-tab>
+//   <ngx-tab title="UZYTKOWNICY">
+//     <app-uzytkownicy> </app-uzytkownicy>
+//   </ngx-tab>
+//   <ngx-tab title="PRODUCENCI" >
+//     <app-producenci> </app-producenci>
+//   </ngx-tab>
+//   <ngx-tab title="OZNACZENIA" >
+//     <app-oznaczenia> </app-oznaczenia>
+//   </ngx-tab>
+//   <ngx-tab title="WPROWADZ ILOSC" >
+//     <app-wprowadz-ilosc> </app-wprowadz-ilosc>
+//   </ngx-tab>
+// </ngx-tabset>
+// </div>
+//   `,
   styleUrls: ['./alltabs.component.css']
 })
 export class AlltabsComponent implements OnInit {
