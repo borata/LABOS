@@ -1,5 +1,5 @@
 
-import { WprowadzIloscComponent } from './../wprowadz_ilosc/wprowadz-ilosc.component';
+import { WprowadzIloscComponent } from './wprowadz_ilosc/wprowadz-ilosc.component';
 import { LoginService } from './services/login.service';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AngularFireAuthModule } from 'angularfire2/auth';

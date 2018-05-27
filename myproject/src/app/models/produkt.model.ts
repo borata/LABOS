@@ -1,0 +1,19 @@
+export class Produkt {
+    $key:string;
+    IDnumerCAS:string;
+    dataAktualizacji:string;
+    godzinaAktualizacji:string;
+    iloscPosiadana:number;
+    materialNiebezpieczny:string;
+    miejscePrzechowywania:string;
+    nazwaChemiczna:string;
+    osobaOdpowiedzialana:string;
+    przeznaczenie:string;
+    rodzaj:string;
+    symboleOstrzegawcze:string;
+    wydzial:string;
+    zwrotRyzykaR:string;
+    zwrotWskazujacyRodzajZagrozeniaH:string;
+    zwrotyBezpieczenstwaS:string;
+    zwrotyWskazujaceSrodkiOstroznosciP:string;
+}

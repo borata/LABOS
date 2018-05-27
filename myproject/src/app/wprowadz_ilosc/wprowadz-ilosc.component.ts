@@ -4,11 +4,14 @@ import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { mergeAll, tap, map } from 'rxjs/operators';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ProduktService} from '../models/produkt.service';
+import { Produkt } from '../models/produkt.model';
 
 @Component({
     selector: 'app-wprowadz-ilosc',
     templateUrl: './wprowadz-ilosc.component.html',
     styleUrls: ['./wprowadz-ilosc.component.css'],
+    providers :[ProduktService],
 })
 
 
@@ -24,18 +27,22 @@ export class WprowadzIloscComponent implements OnInit {
     produkty$: Observable<any>;
     wybranyProdukt;
     costam;
+    produktList: Produkt[];
 
-    constructor(fireDB: AngularFireDatabase, private modalService: NgbModal) {
-      this.fireDB = fireDB;
-    }
+    constructor(private produktService:ProduktService, private modalService: NgbModal) {}
 
    
 
     ngOnInit() {
-      this.listaProduktow = this.fireDB.list('produkty');
-      this.produkty$ = this.listaProduktow.snapshotChanges();
-       this.produkty$.subscribe(x => this.costam = x);
-
+      var x = this.produktService.getData();
+      x.snapshotChanges().subscribe(item => {
+        this.produktList = [];
+        item.forEach(element => {
+          var y = element.payload.toJSON();
+          y["$key"] = element.key;
+          this.produktList.push(y as Produkt);
+        });
+      });
     }
 
     open(content){
@@ -43,8 +50,7 @@ export class WprowadzIloscComponent implements OnInit {
     }
 
     addItem(event,content) {
-      console.log(this.costam[0]);
-      if(this.wybranyProdukt && this.wybranyProdukt.iloscPosiadana!=0 && this.wybranyProdukt.iloscPosiadana>this.substanceAmount){
+      if(this.wybranyProdukt && this.wybranyProdukt.iloscPosiadana>this.substanceAmount){
         this.usedSubstances.push({
           wybranyProdukt: this.wybranyProdukt,
           ilosc: this.substanceAmount,
@@ -59,19 +65,9 @@ export class WprowadzIloscComponent implements OnInit {
       alert('Wprowadzono niepoprawna ilosc');
     }
   }
-
-    onOptionsSelected(event){
-      console.log(event);
-      console.log(this.wybranyProdukt);
-    }
-
-    update(event, newValue:string){
-
-      event.confirm.resolve(event);
-      
-      event.newData.upd = new Date() ; 
-      this.fireDB.object('/produkt.iloscPosiadana/').update(event.newData);
-
-    }
+  onOptionsSelected(event){
+    console.log(event);
+    console.log(this.wybranyProdukt);
+  }
 
 }
