@@ -50,6 +50,13 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+
+  {
+    path: 'strefyadmin',
+    component: AlltabsAdminComponent,
+  
+  },
+
   {
     path: 'strefy',
     component: AlltabsComponent,
@@ -60,17 +67,11 @@ const appRoutes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
+
   {
     path: '**',
     redirectTo: '/login',
   },
-
-  {
-    path: 'strefyadmin',
-    component: AlltabsAdminComponent,
-  
-  }
-
 
 ]
 
