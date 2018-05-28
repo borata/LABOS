@@ -9,27 +9,7 @@ import { ProducenciAdminComponent } from '../producenci-admin/producenci-admin.c
 
 @Component({
   selector: 'app-alltabs-admin',
-  template: `
-
-  
- <div class=""style="background-color:ghostwhite;">
- 
- <ngx-tabset>
-   <ngx-tab title="PRODUKTY" >
-     <app-products-admin> </app-products-admin>
-   </ngx-tab>
-   <ngx-tab title="UZYTKOWNICY">
-     <app-uzytkownicy-admin> </app-uzytkownicy-admin>
-   </ngx-tab>
-   <ngx-tab title="PRODUCENCI" >
-     <app-producenci-admin> </app-producenci-admin>
-   </ngx-tab>
-   <ngx-tab title="OZNACZENIA" >
-     <app-oznaczenia-admin> </app-oznaczenia-admin>
-   </ngx-tab>
- </ngx-tabset>
- </div>
-   `,
+  templateUrl: './alltabs-admin.component.html',
   styleUrls: ['./alltabs-admin.component.css']
 })
 export class AlltabsAdminComponent implements OnInit {

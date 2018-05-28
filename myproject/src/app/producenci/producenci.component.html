@@ -5,6 +5,12 @@
   </table>
 </div>
 
+<div>
+  <div>
+    <input type="text" placeholder="Search" ng-model="userSearch">
+  </div>
+</div>
+
 <div class="lista" *ngFor="let producent of (producenci$ | async) ">
   <div class="Row" [routerLink]="['/producenci']">
     <div class="table-responsive">

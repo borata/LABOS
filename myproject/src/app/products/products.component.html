@@ -6,6 +6,12 @@
       <th class="col-sm">rodzaj</th>
     </table>
   </div>
+
+  <div>
+    <div>
+      <input type="text" placeholder="Search" ng-model="userSearch">
+    </div>
+  </div>
   
   <div class="lista" *ngFor="let produkt of (produkty$ | async) ">
     <div class="Row" [routerLink]="['/produkty']">

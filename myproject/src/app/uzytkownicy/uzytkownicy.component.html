@@ -8,6 +8,12 @@
       <th class="col-sm">Numer Indeksu</th>
     </table>
   </div>
+
+  <div>
+    <div>
+      <input type="text" placeholder="Search" ng-model="userSearch">
+    </div>
+  </div>
   
   <div class="lista" *ngFor="let uzytkownik of (uzytkownicy$ | async) ">
     <div class="Row" [routerLink]="['/uzytkownicy']">
